@@ -11,19 +11,31 @@ public class Exercise2 {
 
 	public static class Car {
 		
-		private GasEngine engine = new GasEngine();
+		private Engine engine = new Engine();
 		
-		public Car() {
+		public Car(Engine engine) {
+			this.engine = engine;
 		}
 		
 		public void moveForward() {
 			engine.spinWheels();
 		}
-	}
 	
-	public static class GasEngine {
-		public void spinWheels() {
-			// no-op for now
+		public static class GasEngine {
+			public void spinWheels() {
+				// no-op for now
+			}
 		}
+
+		public static class ElectricEngine {
+			public void spinWheels() {
+				// no-op for now
+			}
+		}
+	}
+
+	public static void main(String[] args) { 
+		Car greatCar = new Car(new ElectricEngine());
+		Car oldCar = new Car(new GasEngine());
 	}
 }
