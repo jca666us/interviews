@@ -16,6 +16,6 @@ public class Exercise3Test {
         people.add(p1);
         people.add(p1);
 
-        assertEquals(1, people.size());
+        assertEquals(2, people.size());
     }
 }
