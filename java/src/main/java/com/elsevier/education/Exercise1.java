@@ -7,36 +7,55 @@ import java.util.Set;
 TODO: Make this class immutable.
 
 */
-public class Exercise1 {
+public final class Exercise1 {
 
-	public static class Person {
+	/**
+	*
+	* Person is declared as final so that it cannot be extended.
+	*
+	**/
+	public final class Person {
+
+		/**
+		*
+		*
+		* All fields are private so that direct access is not allowed.
+		*
+		**/
+		private final Set<String> phoneNumbers;
+		private final String firstName;
+		private final String lastName;
 		
-		private Set<String> phoneNumbers;
-		private String firstName;
-		private String lastName;
-		
-		public Person() {
+		/**
+	 	* Initialize all the fields via constructor performing deep copy.
+	 	* @param pns
+	 	* @param fn
+	 	* @param ln
+	 	*/
+		public Person(String fn, String ln, Set<String> pns) {
+			this.firstName = fn;
+			this.lastName = ln;
+			Collection<E> oldSet = pns;
+			TreeSet<E> tempPhone = new TreeSet<E>(pns);
+			this.phoneNumbers = tempPhone;
 		}
 
+		/**
+		*
+		*
+		* Public getter methods 
+		*
+		**/
 		public Set<String> getPhoneNumbers() {
 			return phoneNumbers;
 		}
-		public void setPhoneNumbers(Set<String> newPhoneNumbers) {
-			phoneNumbers = newPhoneNumbers;
-		}
-		
+
 		public String getFirstName() {
 			return firstName;
 		}
-		public void setFirstName(String newName) {
-			firstName = newName;
-		}
-		
+
 		public String getLastName() {
 			return lastName;
-		}
-		public void setLastName(String newName) {
-			lastName = newName;
 		}
 	}
 }
